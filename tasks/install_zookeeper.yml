@@ -18,11 +18,21 @@
 # (c) 2016 Paul Stevens <paul.stevens@is.co.za>
 #
 
+- name: Add a zookeeper user
+  user:
+    name: zookeeper
+    comment: "Apache zookeeper Service"
+  register: create_zookeeper_user
+  until: create_zookeeper_user | success
+  retries: 5
+  delay: 2
+
 - name: Download Zookeeper package
   get_url:
     url: "https://archive.apache.org/dist/zookeeper/zookeeper-{{ zookeeper_version }}/zookeeper-{{ zookeeper_version }}.tar.gz"
     dest: "/root/apache-zookeeper-{{ zookeeper_version }}.tar.gz"
     mode: 0600
+    validate_certs: no
   register: download_zookeeper
   until: download_zookeeper | success
   retries: 5
@@ -34,6 +44,7 @@
     dest: "{{ dist_dir }}"
     creates: "{{ dist_dir }}/apache-zookeeper-{{ zookeeper_version }}"
     copy: no
+    owner: zookeeper
   register: extract_zookeeper
   until: extract_zookeeper | success
   retries: 5

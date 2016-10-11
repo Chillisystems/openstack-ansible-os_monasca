@@ -43,6 +43,7 @@
     dest: "{{ dist_dir }}"
     creates: "/opt/{{ dist_dir }}/apache-storm-{{ storm_version }}"
     copy: no
+    owner: storm
   register: extract_storm
   until: extract_storm | success
   retries: 5
