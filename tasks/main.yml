@@ -36,7 +36,6 @@
   tags:
     - os_monasca
 
-
 - include: configure_zookeeper.yml
   tags:
     - os_monasca

@@ -32,7 +32,7 @@ monasca_distro_packages:
   - mariadb-client
   - maven
   - nodejs
-  - openjdk-7-jdk
+  - default-jdk-headless
   - python-software-properties
   - python-dev
   - python-mysqldb
