@@ -50,18 +50,19 @@
 - name: ansible-zookeeper
   src: https://github.com/guilhermesteinmuller/ansible-zookeeper
   scm: git
-  version: master
+  version: a856bc6e568d8104328af5d2cdfb86ab095d031f
 - name: ansible-kafka
   src: https://github.com/guilhermesteinmuller/ansible-kafka
   scm: git
-  version: master
+  version: f09820f5485883b272d4da724da699cb7e1e05cf
 - name: ansible-storm
   src: https://github.com/guilhermesteinmuller/ansible-storm
   scm: git
-  version: master
+  version: a1ba474cb2afc8d35599940c301952e1dba3f544
 - name: ansible-influxdb
   src: https://github.com/guilhermesteinmuller/ansible-influxdb.git
   scm: git
+<<<<<<< HEAD
   version: master
 - name: ansible-grafana
   src: https://github.com/cloudalchemy/ansible-grafana
@@ -75,3 +76,10 @@
   src: https://git.openstack.org/openstack/ansible-role-python_venv_build
   scm: git
   version: stable/rocky
+=======
+  version: 6c25c6f46792ad4f2d00b9a6e6fbb86c6344c193
+- name: grafana-ansible
+  src: https://github.com/flaviodsr/grafana-ansible
+  scm: git
+  version: 796eb972d6712143a0430bc7b6a7aec2fbd9d231
+>>>>>>> Point to Queens instead of master
