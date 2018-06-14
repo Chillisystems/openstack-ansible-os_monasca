@@ -299,6 +299,8 @@ monasca_services:
   monasca-notification:
     group: monasca_notification
     service_name: monasca-notification
+    service_init_bin: "{{ monasca_bin }}/monasca-notification"
+    service_init_options: "/etc/monasca/notification.yaml"
     init_config_overrides: "{{ monasca_notification_init_overrides }}"
 
 monasca_api_init_overrides: {}

@@ -31,6 +31,7 @@
     policy_name: persister_all
     duration: "{{ monasca_influxdb_retention_policy }}"
     replication: "{{ monasca_influxdb_replication_factor }}"
+    default: true
   no_log: True
 
 - name: Create influxdb users

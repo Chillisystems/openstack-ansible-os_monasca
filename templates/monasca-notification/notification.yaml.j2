@@ -28,7 +28,9 @@ kafka:
     max_offset_lag: 600  # In seconds, undefined for none
 
 database:
-  repo_driver: "monasca_notification.common.repositories.mysql.mysql_repo:MysqlRepo"
+    repo_driver: "monasca_notification.common.repositories.mysql.mysql_repo:MysqlRepo"
+    orm:
+        url: ''
 
 mysql:
     host: "{{ monasca_galera_address }}"
