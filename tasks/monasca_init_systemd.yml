@@ -67,4 +67,7 @@
   with_dict: "{{ monasca_services }}"
   when: inventory_hostname in groups[item.value.group]
   notify:
+    - Reload systemd
     - Restart monasca services
+
+- meta: flush_handlers

@@ -45,3 +45,6 @@
     daemon_reload: "{{ (ansible_service_mgr == 'systemd') | ternary('yes', omit) }}"
   with_dict: "{{ monasca_services }}"
   when: inventory_hostname in groups[item.value.group]
+
+- name: Reload systemd
+  command: systemctl daemon-reload
