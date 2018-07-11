@@ -294,7 +294,7 @@ monasca_services:
     group: monasca_thresh
     service_name: monasca-thresh
     service_init_bin: "/opt/storm/current/bin/storm jar /usr/share/monasca-thresh/thresh/target/monasca-thresh-{{ _monasca_thresh_version.stdout | default('2.1.1') }}-shaded.jar"
-    service_init_options: "monasca.thresh.ThresholdingEngine /etc/monasca/thresh-config.yml thresh-cluster local"
+    service_init_options: "monasca.thresh.ThresholdingEngine /etc/monasca/thresh-config.yml thresh-cluster node-backend1"
     init_config_overrides: "{{ monasca_thresh_init_overrides }}"
   monasca-notification:
     group: monasca_notification
