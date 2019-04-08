@@ -1,0 +1,12 @@
+---
+
+- name: Check kafka topics
+  shell: "/opt/kafka/bin/kafka-topics.sh --list --zookeeper {{ zookeeper_hosts }} --topic {{ kafka_topic }} | grep {{ kafka_topic }}"
+  ignore_errors: yes
+  register: check_result
+  changed_when: False
+
+- name: create topics
+  command: "/opt/kafka/bin/kafka-topics.sh --create --zookeeper {{ zookeeper_hosts }} --replication-factor {{ kafka_topic_replicas }} --partitions {{ kafka_topic_partitions }} --topic {{ kafka_topic }}"
+  when:
+   - check_result  is failed

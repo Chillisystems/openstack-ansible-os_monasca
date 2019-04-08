@@ -19,15 +19,10 @@
     group: "kafka"
     mode: "0766"
 
-- name: Check kafka topics
-  shell: "/opt/kafka/bin/kafka-topics.sh --list --zookeeper {{ zookeeper_hosts }} --topic {{ item.key }} | grep {{ item.key }}"
+- include: kafka_topic.yml
+  vars:
+    kafka_topic: "{{ item.key }}"
+    kafka_topic_replicas: "{{ item.key.replicas }}"
+    kafka_topic_partitions: "{{ item.key.partitions }}"
   with_dict: "{{ kafka_topics }}"
-  ignore_errors: yes
-  register: check_result
-  changed_when: False
 
-- name: create topics
-  command: "/opt/kafka/bin/kafka-topics.sh --create --zookeeper {{ zookeeper_hosts }} --replication-factor {{ item.value.replicas }} --partitions {{ item.value.partitions }} --topic {{ item.key }}"
-  with_dict: "{{ kafka_topics }}"
-  when:
-   - check_result  is failed
