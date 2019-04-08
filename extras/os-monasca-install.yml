@@ -34,8 +34,6 @@
 
   roles:
     - role: "os_monasca"
-      monasca_thresh_git_repo: "{{ openstack_repo_git_url }}/monasca-thresh"
-      monasca_common_git_repo: "{{ openstack_repo_git_url }}/monasca-common"
 
     - role: "openstack_openrc"
       tags:
