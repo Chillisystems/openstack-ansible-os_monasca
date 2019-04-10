@@ -30,3 +30,4 @@ monasca_distro_packages:
   - software-properties-common
   - python-dev
   - python-mysqldb
+  - python-setuptools

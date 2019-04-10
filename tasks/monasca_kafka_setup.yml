@@ -22,7 +22,7 @@
 - include: kafka_topic.yml
   vars:
     kafka_topic: "{{ item.key }}"
-    kafka_topic_replicas: "{{ item.key.replicas }}"
-    kafka_topic_partitions: "{{ item.key.partitions }}"
+    kafka_topic_replicas: "{{ item.value.replicas }}"
+    kafka_topic_partitions: "{{ item.value.partitions }}"
   with_dict: "{{ kafka_topics }}"
 
