@@ -52,3 +52,10 @@
   shell: "grep -m 1 version /usr/share/monasca-thresh/thresh/pom.xml | awk -F '[<>]' '{print $3}'"
   register: _monasca_thresh_version
   changed_when: false
+
+- name: Fix permissions on /var/log/storm/workers-artifacts
+  file:
+    path: /var/log/storm/workers-artifacts
+    owner: "{{ monasca_system_user_name }}"
+    group: "{{ monasca_system_group_name }}"
+    state: directory
